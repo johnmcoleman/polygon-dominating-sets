@@ -35,6 +35,10 @@ Terms in the OEIS as of 2026-11-16 are marked "known"; the rest are new.
 | 9 | 135 | 127122812445017255670206773047466222123 | 2773576274509432974802491946402927554739 |
 | 10 | 171 | 4445417218586525760827112474487874053620425707538 | 119283874191819442231697481474634239320305447119279 |
 
+One further term, with weaker verification (one counting method plus congruences;
+see below): **[A292356](https://oeis.org/A292356)(10) = 1272369852811691513**, the
+number of maximal independent vertex sets for n = 10. The OEIS has n = 3..9.
+
 A347480(11) is partly computed (see `NOTEBOOK.md`).
 
 ## How each term was checked
@@ -58,6 +62,12 @@ Methods 1 and 2 agree with each other, with brute force for n <= 6, with every
 previously published term, and with the congruences for every prime p dividing n.
 Both programs were also tested against brute force on several hundred random graphs.
 
+`work/elimgen.c` and `work/gen_models.py` generalise method 2 to any pairwise
+4-state model. They reproduce the published independent-set counts (A291948, n = 3..10)
+and maximal-independent-set counts (A292356, n = 3..9), and give the new A292356(10),
+which also satisfies the congruences mod 2 and mod 5. There is no second independent
+program for that term.
+
 None of the techniques is new: this is transfer-matrix / pathwidth dynamic
 programming, cutset conditioning and standard inclusion-exclusion for domination.
 The contribution is applying them to a family that had only been brute-forced.
@@ -73,6 +83,7 @@ python3 run4.py 10 22 8 check10      # A347480(10) by method 1, about 10 CPU-min
 python3 run_elim.py 7 8 9 10         # A347480 by method 2 (n=9,10 need ~9 GB RAM)
 python3 dom_elim.py 7 8 9 10         # A300529 by method 2
 python3 symcheck.py                  # symmetry congruences
+python3 gen_models.py maxindep 9 10  # A292356 by the generic method
 ```
 
 `NOTEBOOK.md` is the working log, including the mistakes made along the way.

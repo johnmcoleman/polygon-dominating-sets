@@ -150,3 +150,22 @@ in `work/result_<tag>.txt`; progress in `work/<tag>.log`.
   140/1024 chunks were done at 22:55; tonight's window runs 16 processes until 07:00
   (expect roughly 430/1024 by then). About two more nights needed. Ask the owner before
   starting each window.
+
+### Overnight side job: generic model + A292356, 2026-11-16 late
+With the laptop mostly busy on n=11, I generalised method 2 (`work/elimgen.c`,
+`work/gen_models.py`): any symmetric pairwise model with 4 states per vertex, given
+as 4 vertex weights and a 4x4 edge matrix. Models: independent sets, maximal
+independent sets (independent, plus inclusion-exclusion over undominated outsiders),
+and total dominating sets again as a regression.
+
+- 120 random graphs across the three models agree with brute force.
+- Independent sets reproduce A291948 for n=3..10, including the published
+  a(10) = 83148730861613724622207922410 (same width-15 tables as the new term).
+- Maximal independent sets reproduce all 7 published terms of A292356 (n=3..9).
+- Total dominating sets via the generic code reproduce a(7), a(8), a(10).
+- **New: A292356(10) = 1272369852811691513.** Symmetry congruences hold mod 2 and
+  mod 5 (`work/gen_sym.py`), and for every earlier term.
+
+Honest status of that term: one counting method only (variable elimination), plus
+the congruences and the full-scale validations above. No second independent program,
+unlike the A347480 / A300529 terms. n=11 is out of reach for this method (width 25).
