@@ -1,0 +1,15 @@
+# compiled binaries and scratch outputs
+work/pathdp
+work/pathdp2_*
+work/pathdp3_*
+work/pathdp4_*
+work/elimdp_*
+work/*.log
+work/nohup.out
+work/n11a.in
+work/__pycache__/
+.DS_Store
+# raw OEIS search dumps (OEIS content, not ours to republish)
+search/
+search2/
+s1.json
