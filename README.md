@@ -57,6 +57,8 @@ A347480(11) is partly computed (see `NOTEBOOK.md`).
 3. **Symmetry congruence** (`work/symcheck.py`). For a rotation of prime order p
    dividing n, a(n) is congruent mod p to the number of solutions on the quotient
    graph (with loops). A small, structurally unrelated computation.
+   The same argument with a mirror reflection (`work/refl.py`) gives a(n) mod 2 for
+   every n, including odd n; all terms here pass it too.
 
 Methods 1 and 2 agree with each other, with brute force for n <= 6, with every
 previously published term, and with the congruences for every prime p dividing n.

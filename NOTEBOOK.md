@@ -169,3 +169,17 @@ and total dominating sets again as a regression.
 Honest status of that term: one counting method only (variable elimination), plus
 the congruences and the full-scale validations above. No second independent program,
 unlike the A347480 / A300529 terms. n=11 is out of reach for this method (width 25).
+
+### 2026-11-19: state, and a fourth check (mirror symmetry, `work/refl.py`)
+- n=11 stood at 508/1024 chunks after the earlier windows. Started a light daytime window
+  (8 processes, stops 14:30). About 13 hours of 16-process time remain.
+- `.gitignore` now covers `work/elimgen_*`; the four compiled binaries are untracked.
+- Looked for a second independent program for A292356(10). A direct path DP needs 3 states
+  per frontier vertex (3^33 at n=10), and a formulation without inclusion-exclusion has
+  elimination width 41+. Neither is feasible, so that term stays on one program.
+- New check: a reflection is an automorphism of order 2, so a(n) is congruent mod 2 to the
+  count on the reflection quotient (width only 12 at n=11). Passes for every known and new
+  term of A347480 and A300529 (n=3..10, both mirror classes for even n) and for A292356(10).
+  Dominating sets always come out odd, as a known theorem says they must.
+- Prediction for the running job: A347480(11) is even. With the rotation check that is
+  **A347480(11) == 8 (mod 22)**, so a wrong answer now passes with probability about 1/22.
