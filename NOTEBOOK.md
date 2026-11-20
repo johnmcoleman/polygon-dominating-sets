@@ -183,3 +183,10 @@ unlike the A347480 / A300529 terms. n=11 is out of reach for this method (width 
   Dominating sets always come out odd, as a known theorem says they must.
 - Prediction for the running job: A347480(11) is even. With the rotation check that is
   **A347480(11) == 8 (mod 22)**, so a wrong answer now passes with probability about 1/22.
+
+### 2026-11-19 afternoon: owner away for a week, laptop left behind
+The owner said the machine is free all week for benign work. The few-hour limit existed
+because they needed the laptop, so it is lifted until they are back. `work/queue.sh` now
+runs continuously on 16 processes: A347480(11) (692/1024 at restart), then A300529(11),
+then n=12 for both. Restart after a reboot: `cd work && nohup ./queue.sh > queue.log 2>&1 &`.
+Expected checks: A347480(11) == 8 (mod 22); A300529(11) == 11 (mod 22) (0 mod 11, and odd).
