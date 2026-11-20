@@ -190,3 +190,8 @@ because they needed the laptop, so it is lifted until they are back. `work/queue
 runs continuously on 16 processes: A347480(11) (692/1024 at restart), then A300529(11),
 then n=12 for both. Restart after a reboot: `cd work && nohup ./queue.sh > queue.log 2>&1 &`.
 Expected checks: A347480(11) == 8 (mod 22); A300529(11) == 11 (mod 22) (0 mod 11, and odd).
+
+### 2026-11-19, later: plan reversed
+The owner is taking the laptop after all and may need it for interviews. Queue stopped by
+hand; the few-hour limit and ask-before-long-runs rule apply again. Nothing is lost (chunks
+are resumable). Resume n=11 only with a bounded window: `cd work && ./night.sh <procs> <HH:MM>`.
